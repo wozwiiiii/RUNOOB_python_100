@@ -7,3 +7,29 @@
 问第2个人，说比第一个人大两岁。
 最后问第一个人，他说是10岁。请问第五个人多大？
 """
+
+#自己的解法
+def age_1(a,b,c):
+    a = int(input("input how many people:"))
+    b = int(input("first people age:"))
+    c = int(input("gap:"))
+    d = 0
+
+    for i in range(a):
+        d = b + c * (a - 1)
+    
+    return d
+print(age_1(5,10,2))
+
+
+
+#标准答案
+#程序分析：利用递归的方法，递归分为回推和递推两个阶段。
+#要想知道第五个人岁数，需知道第四人的岁数，依次类推，推到第一人（10岁），再往回推。
+
+def age(n):
+    if n == 1: c = 10
+    else: c = age(n - 1) + 2
+    return c
+print (age(5)) 
+
